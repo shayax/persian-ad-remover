@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         persian-ad-remover
 // @namespace    https://github.com/shayax/persian-ad-remover
-// @version      1.0
+// @version      1.0.1
 // @description Removes ads from some persian download sites.
 // @author      https://github.com/shayax/
 // @include      http://*p30download.com/*
@@ -12,8 +12,6 @@
 // @grant        none
 // ==/UserScript==
 /* jshint -W097 */
-'use strict';
-
 // Your code here...
 // @run-at document-end
 var siteUrl = window.location.href;
@@ -25,7 +23,6 @@ var mihandl = siteUrl.search("mihandownload.com");
 if (dlha >= 0) {
     document.querySelector("div.spbanners").remove();
     document.querySelector("div.topbanners468").remove();
-	//    document.querySelector(".rightsidebar").remove();
     document.querySelector(".leftsidebar").remove();
     var adRem0 = document.querySelectorAll("div.entry-etc");
     for (i = 0; i < adRem0.length; i++) {
@@ -45,10 +42,10 @@ if (dlha >= 0) {
         adRem3[i].remove();
     }
     document.querySelector("#content > div").remove();
-    document.querySelector(".product-wrapper").remove();
     document.querySelector(".blogroll").remove();
     document.querySelector("#sidebar").remove();
     document.querySelector("#main-content > div:nth-child(1)").remove();
+    document.querySelector(".product-wrapper").remove();
 } else if (softGoz >= 0) {
     document.querySelector("div.MainBanner").remove();
     document.querySelector("#dtlAdvertiseBan").remove();
