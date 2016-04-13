@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         persian-ad-remover
 // @namespace    https://github.com/shayax/persian-ad-remover
-// @version      1.0.1
+// @version      1.0.2
 // @description Removes ads from some persian download sites.
 // @author      https://github.com/shayax/
 // @include      http://*p30download.com/*
@@ -9,6 +9,7 @@
 // @include      http://*softgozar.com/*
 // @include      http://*download.ir/*
 // @include      http://*mihandownload.com/*
+// @include      http://soft98.ir/*
 // @grant        none
 // ==/UserScript==
 /* jshint -W097 */
@@ -20,6 +21,7 @@ var p30dl = siteUrl.search("p30download.com");
 var softGoz = siteUrl.search("softgozar.com");
 var dlir = siteUrl.search("download.ir");
 var mihandl = siteUrl.search("mihandownload.com");
+var soft98 = siteUrl.search("soft98.ir");
 if (dlha >= 0) {
     document.querySelector("div.spbanners").remove();
     document.querySelector("div.topbanners468").remove();
@@ -77,4 +79,18 @@ if (dlha >= 0) {
     for (i = 0; i < adRem5.length; i++) {
         adRem5[i].remove();
     }
+} else if (soft98 >= 0) {
+    var adRem6 = document.querySelectorAll(".twotopfar");
+    for (i = 0; i < adRem6.length; i++) {
+        adRem6[i].remove();
+	}
+	document.querySelector("#header > div").remove();
+	document.querySelector(".elan").remove();
+	document.querySelector(".topcenteradss").remove();
+	document.querySelector("#left > div.banners").remove();
+	document.querySelector("#right").remove();
+	var adRem7 = document.querySelectorAll(".centp");
+    for (i = 0; i < adRem7.length; i++) {
+        adRem7[i].remove();
+	}
 } else {}
