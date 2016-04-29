@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         persian-ad-remover
 // @namespace    https://github.com/shayax/persian-ad-remover
-// @version      1.0.2
+// @version      1.0.3
 // @description Removes ads from some persian download sites.
 // @author      https://github.com/shayax/
 // @include      http://*p30download.com/*
@@ -10,6 +10,8 @@
 // @include      http://*download.ir/*
 // @include      http://*mihandownload.com/*
 // @include      http://soft98.ir/*
+// @include      http://downloadly.ir/*
+// @include      http://www.yasdl.com/*
 // @grant        none
 // ==/UserScript==
 /* jshint -W097 */
@@ -22,6 +24,8 @@ var softGoz = siteUrl.search("softgozar.com");
 var dlir = siteUrl.search("download.ir");
 var mihandl = siteUrl.search("mihandownload.com");
 var soft98 = siteUrl.search("soft98.ir");
+var downloady = siteUrl.search("downloadly.ir");
+var yasdl = siteUrl.search("yasdl.com");
 if (dlha >= 0) {
     document.querySelector("div.spbanners").remove();
     document.querySelector("div.topbanners468").remove();
@@ -93,4 +97,24 @@ if (dlha >= 0) {
     for (i = 0; i < adRem7.length; i++) {
         adRem7[i].remove();
 	}
+} else if (downloady >= 0) {
+    var adRem8 = document.querySelectorAll(".mom-e3lanat-wrap");
+    for (i = 0; i < adRem8.length; i++) {
+        adRem8[i].remove();
+	}
+	document.querySelector(".adhere").remove();
+} else if (yasdl >= 0) {
+	document.querySelector(".top-ads").remove();
+    var adRem9 = document.querySelectorAll(".ads-block");
+    for (i = 0; i < adRem9.length; i++) {
+        adRem9[i].remove();
+	}
+	var adRem10 = document.querySelectorAll(".fixed-post");
+    for (i = 0; i < adRem10.length; i++) {
+        adRem10[i].remove();
+	}
+	var adRem11 = document.getElementsByTagName("center");
+    for (i = 0; i < adRem11.length; i++) {
+		adRem11[i].remove();
+    }
 } else {}
