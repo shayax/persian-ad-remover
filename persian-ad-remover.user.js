@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         persian-ad-remover
 // @namespace    https://github.com/shayax/persian-ad-remover
-// @version      1.0.3
+// @version      1.0.4
 // @description Removes ads from some persian download sites.
 // @author      https://github.com/shayax/
 // @include      http://*p30download.com/*
@@ -12,6 +12,7 @@
 // @include      http://soft98.ir/*
 // @include      http://downloadly.ir/*
 // @include      http://www.yasdl.com/*
+// @include      http://www.20script.ir/*
 // @grant        none
 // ==/UserScript==
 /* jshint -W097 */
@@ -26,6 +27,7 @@ var mihandl = siteUrl.search("mihandownload.com");
 var soft98 = siteUrl.search("soft98.ir");
 var downloady = siteUrl.search("downloadly.ir");
 var yasdl = siteUrl.search("yasdl.com");
+var bisCri = siteUrl.search("20script.ir");
 if (dlha >= 0) {
     document.querySelector("div.spbanners").remove();
     document.querySelector("div.topbanners468").remove();
@@ -87,34 +89,56 @@ if (dlha >= 0) {
     var adRem6 = document.querySelectorAll(".twotopfar");
     for (i = 0; i < adRem6.length; i++) {
         adRem6[i].remove();
-	}
-	document.querySelector("#header > div").remove();
-	document.querySelector(".elan").remove();
-	document.querySelector(".topcenteradss").remove();
-	document.querySelector("#left > div.banners").remove();
-	document.querySelector("#right").remove();
-	var adRem7 = document.querySelectorAll(".centp");
+    }
+    document.querySelector("#header > div").remove();
+    document.querySelector(".elan").remove();
+    document.querySelector(".topcenteradss").remove();
+    document.querySelector("#left > div.banners").remove();
+    document.querySelector("#right").remove();
+    var adRem7 = document.querySelectorAll(".centp");
     for (i = 0; i < adRem7.length; i++) {
         adRem7[i].remove();
-	}
+    }
 } else if (downloady >= 0) {
     var adRem8 = document.querySelectorAll(".mom-e3lanat-wrap");
     for (i = 0; i < adRem8.length; i++) {
         adRem8[i].remove();
-	}
-	document.querySelector(".adhere").remove();
+    }
+    document.querySelector(".adhere").remove();
 } else if (yasdl >= 0) {
-	document.querySelector(".top-ads").remove();
+    document.querySelector(".top-ads").remove();
     var adRem9 = document.querySelectorAll(".ads-block");
     for (i = 0; i < adRem9.length; i++) {
         adRem9[i].remove();
-	}
-	var adRem10 = document.querySelectorAll(".fixed-post");
+    }
+    var adRem10 = document.querySelectorAll(".fixed-post");
     for (i = 0; i < adRem10.length; i++) {
         adRem10[i].remove();
-	}
-	var adRem11 = document.getElementsByTagName("center");
-    for (i = 0; i < adRem11.length; i++) {
-		adRem11[i].remove();
     }
+    var adRem11 = document.getElementsByTagName("center");
+    for (i = 0; i < adRem11.length; i++) {
+        adRem11[i].remove();
+    }
+} else if (bisCri >= 0) {
+    var adRem12 = document.querySelectorAll(".adver-post");
+    for (i = 0; i < adRem12.length; i++) {
+        adRem12[i].remove();
+    }
+    document.querySelector("div[style='position:fixed;left:0px;top:0px;z-index:9999']").remove();
+    document.querySelector("div[style='position:fixed;left:0px;top:220px;z-index:9999']").remove();
+    document.querySelector("div[style='position:fixed;left:0px;bottom:-2px;z-index:300']").remove();
+    document.querySelector("div[style='position:fixed;right:0px;top:0px;z-index:9999']").remove();
+    document.querySelector("div[style='position:fixed;right:0px;top:220px;z-index:9999']").remove();
+    document.querySelector("div[style='position:fixed;right:0px;bottom:-2px;z-index:300']").remove();
+    document.querySelector("div[class='box row slow-transition']").remove();
+    document.querySelector("div[class='box row slow-transition']").remove();
+    document.querySelector(".ads-topppia").remove();
+    document.querySelector(".sidebar").remove();
+    document.querySelector(".pre-footer").remove();
+    //document.querySelector(".advertising").remove();
+    document.querySelector("div.bottom-header").remove();
+    getCookie = null;
+    setCookie = null;
+    checkCookie = null;
+    document.onclick = "window.open(document.openlocation.href.value)";
 } else {}
