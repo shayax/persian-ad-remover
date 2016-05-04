@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         persian-ad-remover
 // @namespace    https://github.com/shayax/persian-ad-remover
-// @version      1.0.4
+// @version      1.1.0
 // @description Removes ads from some persian download sites.
 // @author      https://github.com/shayax/
 // @include      http://*p30download.com/*
 // @include      http://*downloadha.com/*
 // @include      http://*softgozar.com/*
-// @include      http://*download.ir/*
+// @include      http://*.download.ir/*
 // @include      http://*mihandownload.com/*
 // @include      http://soft98.ir/*
 // @include      http://downloadly.ir/*
@@ -28,27 +28,24 @@ var soft98 = siteUrl.search("soft98.ir");
 var downloady = siteUrl.search("downloadly.ir");
 var yasdl = siteUrl.search("yasdl.com");
 var bisCri = siteUrl.search("20script.ir");
+function adRem() {
+    for (i = 0; i < adVar.length; i++) {
+        adVar[i].remove();
+    }
+}
 if (dlha >= 0) {
     document.querySelector("div.spbanners").remove();
     document.querySelector("div.topbanners468").remove();
     document.querySelector(".leftsidebar").remove();
-    var adRem0 = document.querySelectorAll("div.entry-etc");
-    for (i = 0; i < adRem0.length; i++) {
-        adRem0[i].remove();
-    }
-    var adRem1 = document.getElementsByTagName("center");
-    for (i = 0; i < adRem1.length; i++) {
-        adRem1[i].remove();
-    }
+    var adVar = document.querySelectorAll("div.entry-etc");
+    adRem();
+    var adVar = document.getElementsByTagName("center");
+    adRem();
 } else if (p30dl >= 0) {
-    var adRem2 = document.querySelectorAll(".tabliq-468");
-    for (i = 0; i < adRem2.length; i++) {
-        adRem2[i].remove();
-    }
-    var adRem3 = document.getElementsByTagName("iframe");
-    for (i = 0; i < adRem3.length; i++) {
-        adRem3[i].remove();
-    }
+    var adVar = document.querySelectorAll(".tabliq-468");
+    adRem();
+    var adVar = document.getElementsByTagName("iframe");
+    adRem();
     document.querySelector("#content > div").remove();
     document.querySelector(".blogroll").remove();
     document.querySelector("#sidebar").remove();
@@ -67,7 +64,6 @@ if (dlha >= 0) {
     document.querySelector("#anetwork-261045").remove();
     document.querySelector("#cphMaster_dtlAdvertiseS1Ban").remove();
     document.querySelector("#dtlAdvertiseBTM").remove();
-
 } else if (dlir >= 0) {
     document.querySelector("#header").remove();
     document.querySelector("#text-7").remove();
@@ -77,53 +73,35 @@ if (dlha >= 0) {
     document.querySelector("#enhancedtextwidget-5").remove();
     document.querySelector("#enhancedtextwidget-6").remove();
     document.querySelector("#enhancedtextwidget-20").remove();
-    var adRem4 = document.querySelectorAll(".well");
-    for (i = 0; i < adRem4.length; i++) {
-        adRem4[i].remove();
-    }
-    var adRem5 = document.querySelectorAll(".widget-adds");
-    for (i = 0; i < adRem5.length; i++) {
-        adRem5[i].remove();
-    }
+    var adVar = document.querySelectorAll(".well");
+    adRem();
+    var adVar = document.querySelectorAll(".widget-adds");
+    adRem();
 } else if (soft98 >= 0) {
-    var adRem6 = document.querySelectorAll(".twotopfar");
-    for (i = 0; i < adRem6.length; i++) {
-        adRem6[i].remove();
-    }
+    var adVar = document.querySelectorAll(".twotopfar");
+    adRem();
     document.querySelector("#header > div").remove();
     document.querySelector(".elan").remove();
     document.querySelector(".topcenteradss").remove();
     document.querySelector("#left > div.banners").remove();
     document.querySelector("#right").remove();
-    var adRem7 = document.querySelectorAll(".centp");
-    for (i = 0; i < adRem7.length; i++) {
-        adRem7[i].remove();
-    }
+    var adVar = document.querySelectorAll(".centp");
+    adRem();
 } else if (downloady >= 0) {
-    var adRem8 = document.querySelectorAll(".mom-e3lanat-wrap");
-    for (i = 0; i < adRem8.length; i++) {
-        adRem8[i].remove();
-    }
+    var adVar = document.querySelectorAll(".mom-e3lanat-wrap");
+    adRem();
     document.querySelector(".adhere").remove();
 } else if (yasdl >= 0) {
     document.querySelector(".top-ads").remove();
-    var adRem9 = document.querySelectorAll(".ads-block");
-    for (i = 0; i < adRem9.length; i++) {
-        adRem9[i].remove();
-    }
-    var adRem10 = document.querySelectorAll(".fixed-post");
-    for (i = 0; i < adRem10.length; i++) {
-        adRem10[i].remove();
-    }
-    var adRem11 = document.getElementsByTagName("center");
-    for (i = 0; i < adRem11.length; i++) {
-        adRem11[i].remove();
-    }
+    var adVar = document.querySelectorAll(".ads-block");
+    adRem();
+    var adVar = document.querySelectorAll(".fixed-post");
+    adRem();
+    var adVar = document.getElementsByTagName("center");
+    adRem();
 } else if (bisCri >= 0) {
-    var adRem12 = document.querySelectorAll(".adver-post");
-    for (i = 0; i < adRem12.length; i++) {
-        adRem12[i].remove();
-    }
+    var adVar = document.querySelectorAll(".adver-post");
+    adRem();
     document.querySelector("div[style='position:fixed;left:0px;top:0px;z-index:9999']").remove();
     document.querySelector("div[style='position:fixed;left:0px;top:220px;z-index:9999']").remove();
     document.querySelector("div[style='position:fixed;left:0px;bottom:-2px;z-index:300']").remove();
