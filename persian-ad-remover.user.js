@@ -1,19 +1,20 @@
 // ==UserScript==
 // @name         persian-ad-remover
 // @namespace    https://github.com/shayax/persian-ad-remover
-// @version      1.1.1
+// @version      1.1.2
 // @description Removes ads from some persian download sites.
 // @author      https://github.com/shayax/
-// @include      http://*p30download.com/*
-// @include      http://*downloadha.com/*
-// @include      http://*softgozar.com/*
-// @include      http://*download.ir/*
-// @include      http://*mihandownload.com/*
+// @include      http://*.p30download.com/*
+// @include      http://*.downloadha.com/*
+// @include      http://*.softgozar.com/*
+// @include      http://*.download.ir/*
+// @include      http://*.mihandownload.com/*
 // @include      http://soft98.ir/*
 // @include      http://downloadly.ir/*
 // @include      http://www.yasdl.com/*
 // @include      http://www.20script.ir/*
 // @include      http://www.instructables.com/*
+// @include      http://persiangfx.com/fa/*
 // @grant        none
 // ==/UserScript==
 /* jshint -W097 */
@@ -30,6 +31,7 @@ var downloady = siteUrl.search("downloadly.ir");
 var yasdl = siteUrl.search("yasdl.com");
 var bisCri = siteUrl.search("20script.ir");
 var instru = siteUrl.search("www.instructables.com");
+var pergfx = siteUrl.search("persiangfx.com/");
 function adRem() {
     for (i = 0; i < adVar.length; i++) {
         adVar[i].remove();
@@ -128,4 +130,19 @@ if (dlha >= 0) {
 	var adVar = document.querySelector("#gpt-ad-native-middle").remove();
 	var adVar = document.querySelector("#gpt-ad-native-bottom").remove();
 	var adVar = document.querySelector(".aspace-wrap").remove();
+} else if (pergfx >= 0) {
+	var adVar = document.querySelector("#sidebar-left").remove();
+	var adVar = document.querySelector("#sidebar-right").remove();
+	var adVar = document.querySelector(".linkbox-content").remove();
+	var adVar = document.querySelector(".linkbox-top").remove();
+	var adVar = document.querySelector(".linkbox-btt").remove();
+	var adVar = document.querySelector(".best-posts").remove();
+	var adVar = document.querySelector("#page-body > div:nth-child(1)").remove();
+	var adVar = document.querySelector("#page-body > div:nth-child(1)").remove();
+	var adVar = document.querySelector("#page-body > div:nth-child(2)").remove();
+	var adVar = document.querySelector("#page-body > div:nth-child(2)").remove();
+	var adVar = document.querySelector("#page-body > div:nth-child(3)").remove();
+	var adVar = document.querySelector("#page-body > div:nth-child(3)").remove();
+	var adVar = document.querySelector("#page-body > div:nth-child(2)").remove();
+	var adVar = document.querySelector("#footer").remove();
 } else {}
